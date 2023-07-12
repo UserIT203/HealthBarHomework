@@ -8,26 +8,29 @@ public class Player : MonoBehaviour
 {
     [Header("Player Stats")]
     [SerializeField] private float _maxHealth;
-    [Header("Slider Components")]
-    [SerializeField] private HealthBar _hpSlider;
 
     private float _currentHealth;
+
+    public float MaxHealth => _maxHealth;
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
     }
 
-    public void ChangeHP(float valueChanging) 
+    public void TakeDamage(float damage)
     {
-        float tempHealth = _currentHealth + valueChanging;
+        if (_currentHealth <= 0)
+            return;
 
-        if (tempHealth < 0)
+        _currentHealth -= damage;
+    }
+
+    public void CurePlayer(float value)
+    {
+        if (_currentHealth >= _maxHealth)
             return;
-        else if(tempHealth > _maxHealth)
-            return;
-                
-        _currentHealth = tempHealth;
-        _hpSlider.ChangeSliderValue(_currentHealth);
+
+        _currentHealth += value;
     }
 }

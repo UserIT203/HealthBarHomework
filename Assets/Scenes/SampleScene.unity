@@ -155,7 +155,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606158797}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.688, y: 0.104}
   m_AnchorMax: {x: 0.823, y: 0.37483212}
@@ -208,7 +208,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 895822416}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: ChangeHP
+        m_MethodName: CurePlayer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 586059550}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: ChangeSliderValue
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -287,7 +299,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606158797}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.31, y: 0.65683204}
   m_AnchorMax: {x: 0.388, y: 0.8344977}
@@ -363,7 +375,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606158797}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -502,6 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 586059548}
   - component: {fileID: 586059549}
+  - component: {fileID: 586059550}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -525,7 +538,7 @@ RectTransform:
   - {fileID: 711854410}
   - {fileID: 740740666}
   m_Father: {fileID: 1606158797}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34919173, y: 0.6871649}
   m_AnchorMax: {x: 0.8327316, y: 0.80200005}
@@ -583,6 +596,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &586059550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586059547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ca3d3afcacd524fa02d95a5f45bd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duractionTime: 1
+  _player: {fileID: 895822416}
 --- !u!1 &711854409
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +750,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895822414
 GameObject:
@@ -750,12 +777,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895822414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.32383, y: -12.163179, z: 0.3445222}
-  m_LocalScale: {x: 1.3293855, y: 1.3293855, z: 1.3293855}
+  m_LocalPosition: {x: 303.62723, y: 186.25052, z: 0.259159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1606158797}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &895822416
 MonoBehaviour:
@@ -770,8 +797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _hpSlider: {fileID: 586059549}
-  _duractionTime: 1
 --- !u!1 &941869344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1072,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1606158797}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18165484, y: 0.104}
   m_AnchorMax: {x: 0.3174985, y: 0.3878336}
@@ -1100,7 +1125,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 895822416}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: ChangeHP
+        m_MethodName: TakeDamage
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 586059550}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: ChangeSliderValue
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1180,7 +1217,7 @@ RectTransform:
   m_Children:
   - {fileID: 1288169932}
   m_Father: {fileID: 1606158797}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1508466, y: 0.5831789}
   m_AnchorMax: {x: 0.296, y: 0.91039395}
@@ -1317,7 +1354,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 895822415}
   - {fileID: 503392331}
   - {fileID: 586059548}
   - {fileID: 263087021}
@@ -1325,7 +1361,7 @@ RectTransform:
   - {fileID: 1380120691}
   - {fileID: 90654540}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
