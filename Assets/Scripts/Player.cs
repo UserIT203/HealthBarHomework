@@ -9,15 +9,13 @@ public class Player : MonoBehaviour
     [Header("Player Stats")]
     [SerializeField] private float _maxHealth;
     [Header("Slider Components")]
-    [SerializeField] private Slider _hpSlider;
-    [SerializeField] private float _duractionTime;
+    [SerializeField] private HealthBar _hpSlider;
 
     private float _currentHealth;
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
-        _hpSlider.value = _maxHealth;
     }
 
     public void ChangeHP(float valueChanging) 
@@ -30,9 +28,6 @@ public class Player : MonoBehaviour
             return;
                 
         _currentHealth = tempHealth;
-        ChangeSliderValue();
+        _hpSlider.ChangeSliderValue(_currentHealth);
     }
-
-    private void ChangeSliderValue() => _hpSlider.DOValue(_currentHealth, _duractionTime, false);
-
 }
